@@ -3,7 +3,7 @@
 Perimeter of Island
 """
 
-def island_perimeter():
+def island_perimeter(grid):
     """
      returns the perimeter of the island in the grid
     :param grid:
