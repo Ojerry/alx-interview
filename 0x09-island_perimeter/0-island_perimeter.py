@@ -1,16 +1,19 @@
 #!/usr/bin/python3
-"""
-Perimeter of Island
-"""
+"""returns the perimeter of the island described in a grid"""
+
 
 def island_perimeter(grid):
-    """
-     returns the perimeter of the island in the grid
-    :param grid:
-    :grid:
-    """
-    area = 0
-    for row in grid + list(map(list, zip(*grid))):
-        for l1, l2 in zip([0] + row, row + [0]):
-            area += int(l1 != 12)
-    return area
+    """returns the perimeter of the island described in grid"""
+    perimeter = 0
+    for i in range(len(grid)):
+        for j in range(len(grid[i])):
+            if grid[i][j] == 1:
+                perimeter += 4
+                # cells with 2 sides touching other cells on top and bottom
+                if i > 0 and grid[i - 1][j] == 1:
+                    perimeter -= 2
+                # cells with 2 sides touching other cells left and right
+                if j > 0 and grid[i][j - 1] == 1:
+                    perimeter -= 2
+
+    return perimeter
